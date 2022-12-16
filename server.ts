@@ -4,10 +4,6 @@ import MapboxService from "./mapbox-autofill";
 const app = express();
 const port = 3000;
 
-app.get("/", (req: express.Request, res: express.Response) => {
-  res.send("Hello World!");
-});
-
 app.get("/search", async (req: express.Request, res: express.Response) => {
   const searchStr: string = req.query.search as string;
   const country: string = req.query.locale as string;
