@@ -3,7 +3,7 @@ import express from "express";
 import MapboxSearchController from "./controllers/mapboxSearch";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get("/search", MapboxSearchController.getSearchSuggestions);
 app.get("/health", (_req,res)=>{
