@@ -6,7 +6,7 @@ class MapboxService {
 
   constructor() {
     this.geocode = new MapboxGeocode({
-      accessToken: process.env.MAPBOX_API_TOKEN,
+      accessToken: process.env.MAPBOX_API_KEY,
     });
   }
 
