@@ -7,15 +7,15 @@ interface Controller {
 
 const MapboxSearchController: Controller = {
     getSearchSuggestions:async (req,res)=>{
-        const searchStr: string = req.query.search as string;
-        const country: string = req.query.locale as string;
+        const searchStr: string = req.body.search;
+        const country: string = req.body.country;
         if (!searchStr)
           return res
             .status(400)
             .json({ result: "Bad request: search param required" });
         const autofill = new MapboxService();
-        const result = await autofill.fetchResult(searchStr, country);
-        res.status(200).json({ result });
+        const results = await autofill.fetchResult(searchStr, country);
+        res.status(200).json({ results });
     }
 }
 
