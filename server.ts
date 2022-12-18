@@ -1,11 +1,15 @@
 require("dotenv").config();
 import express from "express";
-import MapboxSearchController from "./controllers/mapboxSearch";
+import cors from "cors"
+import MapboxSearchController from "./controllers/mapbox.controller";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get("/search", MapboxSearchController.getSearchSuggestions);
+app.use(express.json());
+app.use(cors())
+
+app.post("/search", MapboxSearchController.getSearchSuggestions);
 app.get("/health", (_req,res)=>{
   res.set('Cache-Control','no-cache')
   res.status(200).json({status:'available'})
