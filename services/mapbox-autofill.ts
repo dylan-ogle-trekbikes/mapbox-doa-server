@@ -14,7 +14,7 @@ class MapboxService {
     const responseData = await this.geocode.forward(query, {
       country: country ?? undefined,
     });
-    return responseData.features.map((suggestion) => suggestion.place_name);
+    return responseData.features;
   }
 }
 
