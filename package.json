@@ -12,8 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "@mapbox/search-js-core": "^1.0.0-beta.14",
-    "@mapbox/search-js-react": "^1.0.0-beta.14",
-    "@mapbox/search-js-web": "^1.0.0-beta.14",
     "cors": "^2.8.5",
     "cross-fetch": "^3.1.5",
     "dotenv": "^16.0.3",

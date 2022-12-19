@@ -6,6 +6,10 @@ interface Controller {
 }
 
 const MapboxSearchController: Controller = {
+    getEnabledLocales: async(_req,res)=>{
+        const locales = process.env.ENABLED_LOCALES?.split(',') ?? []
+        return res.status(200).json({locales})
+    },
     getSearchSuggestions:async (req,res)=>{
         const searchStr: string = req.body.search;
         const country: string = req.body.country;
@@ -15,7 +19,7 @@ const MapboxSearchController: Controller = {
             .json({ result: "Bad request: search param required" });
         const autofill = new MapboxService();
         const results = await autofill.fetchResult(searchStr, country);
-        res.status(200).json({ results });
+        return res.status(200).json({ results });
     }
 }
 
