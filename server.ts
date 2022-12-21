@@ -11,6 +11,7 @@ app.use(cors())
 
 //routing
 app.post("/search", MapboxSearchController.getSearchSuggestions);
+app.post("/retrieve", MapboxSearchController.getSuggestionResult);
 app.get('/locales',MapboxSearchController.getEnabledLocales);
 app.get("/health", (_req,res)=>{
   res.set('Cache-Control','no-cache')
