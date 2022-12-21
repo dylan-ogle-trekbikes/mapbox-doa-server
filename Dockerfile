@@ -4,4 +4,4 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 EXPOSE 6060
-CMD [ "ts-node", "server.ts" ]
+CMD [ "node", "server.js" ]
