@@ -3,7 +3,7 @@
     "baseUrl": "./src",
     "target": "esnext",
     "moduleResolution": "node",
-    "esModuleInterop": true
-  },
-  "outdir": "./dist"
+    "esModuleInterop": true,
+    "outDir": "./dist"
+  }
 }

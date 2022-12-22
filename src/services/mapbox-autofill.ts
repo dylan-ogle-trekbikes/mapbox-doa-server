@@ -43,11 +43,13 @@ class MapboxAutofillStrategy implements MapboxStrategy {
   }
 
   async suggest(query:string,country:string) {
+    console.log("AUTOFILL: suggest");
     const autofillSuggestions = await this.fetchResult(query,country);
     this.cache = autofillSuggestions
     return autofillSuggestions.map(this.convertAutofillToSuggestion);
   };
   async retrieve(id: string) {
+    console.log("AUTOFILL: retrieve");
     const suggestion = this.cache.find((suggestion)=>suggestion.action.id === id);
     if(!suggestion) throw Error("Failed to find suggestion in cache")
     const data = await this.autofill.retrieve(suggestion,{sessionToken:this.token});

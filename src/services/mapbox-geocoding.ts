@@ -43,11 +43,13 @@ class MapboxGeocodingStrategy implements MapboxStrategy {
   }
 
   async suggest(query: string, country: string) {
+    console.log("GEOCODE: suggest");
     const geocodeData = await this.fetchResult(query, country);
     this.cache = geocodeData;
     return geocodeData.map(this.convertGeocodeToSuggestionData);
   }
   async retrieve(id: string) {
+    console.log("GEOCODE: retrieve");    
     const geocodeData = this.cache.find((feature) => {
       return feature.id === id;
     });
